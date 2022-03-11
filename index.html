@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Quiz App</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="quiz-box">
+            <div id="quiz" class="hide">
+                <h1>Quiz APP</h1>
+                <div id="quiz-q-t" class="quiz-box-header hide">
+                    <p id="progress">Question x of y</p>
+                    <p id="count-down">Timer</p>
+                </div>
+                <p id="question">QUIZ QUESTION TO ANSWER</p>
+
+                <div class="buttons">
+                    <button class="btn-choice btn " id="btn-a">
+                        A. <span id="choice-a">Question Here</span>
+                    </button>
+
+                    <button class="btn-choice btn" id="btn-b">
+                        B. <span id="choice-b">Question Here</span>
+                    </button>
+
+                    <button class="btn-choice btn" id="btn-c">
+                        C. <span id="choice-c">Question Here</span>
+                    </button>
+
+                    <button class="btn-choice btn" id="btn-d">
+                        D. <span id="choice-d">Question Here</span>
+                    </button>
+                </div>
+            </div>
+            <section class="controls">
+                <button id="start-btn" class="start-btn btn">Start</button>
+                <button id="next-btn" class="next-btn btn hide">Next</button>
+            </section>
+        </div>
+    </div>
+
+
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
