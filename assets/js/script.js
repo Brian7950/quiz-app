@@ -4,24 +4,27 @@ var questionSection = document.querySelector(".buttons");
 var quizBox = document.getElementById('quiz');
 var quizHeader = document.getElementById('quiz-q-t');
 var currentQuestion = 0;
-
+var timerObj;
+var timerCount = 30;
 
 var startGame = function () {
     startButtonEl.classList.add('hide');
     quizHeader.classList.remove('hide');
     quizBox.classList.remove('hide');
+    timerObj = setInterval(function(){
+        document.getElementById("count-down").innerText = timerCount;
+        if(timerCount > 0){
+            timerCount--;
+        }else{
+            clearInterval(timerObj);
+            alert("Time up!")
+
+            //make function to save to local storage
+        }
+    },1000)
     questionAsked();
-}
-
-
-
-
-var grabQuestion = function () {
 
 }
-
-
-
 
 
 var questionObj = [
@@ -59,7 +62,7 @@ var questionAsked = function () {
     document.getElementById("btn-b").innerText = questionObj[currentQuestion].choice[1];
     document.getElementById("btn-c").innerText = questionObj[currentQuestion].choice[2];
     document.getElementById("btn-d").innerText = questionObj[currentQuestion].choice[3];
-
+    document.getElementById("progress").innerText = `Question ${currentQuestion+1}of ${questionObj.length}`;
 
 
 };
