@@ -6,6 +6,7 @@ var quizHeader = document.getElementById('quiz-q-t');
 var currentQuestion = 0;
 var timerObj;
 var timerCount = 30;
+var score = 0;
 
 var startGame = function () {
     startButtonEl.classList.add('hide');
@@ -25,6 +26,9 @@ var startGame = function () {
     questionAsked();
 
 }
+
+
+
 
 
 var questionObj = [
@@ -67,9 +71,39 @@ var questionAsked = function () {
 
 };
 
+var checkAnswer = function(event){
+    console.log(event.target.tagName);
+    if(event.target.tagName == "BUTTON"){
+        var userChoice = event.target.getAttribute("data-index");
+        console.log(userChoice,"User choice");
+        if(userChoice == questionObj[currentQuestion].answer){
+            score+=5;
+            document.getElementById("correct").innerHTML="Correct!";
+        }
+        else{
+            timerCount -=5;
+            document.getElementById("correct").innerHTML="Wrong!";
+        }
+        if(currentQuestion < questionObj.length - 1 ){
+            currentQuestion++;
+            questionAsked();
+        }
+        else{
+            console.log(score,"score");
+            clearInterval(timerObj);
+            alert("End of quiz");
+
+        }
+    }
+}
+
 
 
 startButtonEl.addEventListener("click", startGame);
 // questionAsked();
 
-
+document.getElementById("question-choice").addEventListener("click", checkAnswer);
+// document.getElementById("bnt-a").addEventListener("click",checkAnswer);
+// document.getElementById("bnt-a").addEventListener("click",checkAnswer)
+// document.getElementById("bnt-a").addEventListener("click",checkAnswer)
+// document.getElementById("bnt-a").addEventListener("click",checkAnswer)
