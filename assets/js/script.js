@@ -5,7 +5,7 @@ var quizBox = document.getElementById('quiz');
 var quizHeader = document.getElementById('quiz-q-t');
 var currentQuestion = 0;
 var timerObj;
-var timerCount = 30;
+var timerCount = 60;
 var score = 0;
 
 var startGame = function () {
@@ -26,9 +26,6 @@ var startGame = function () {
     questionAsked();
 
 }
-
-
-
 
 
 var questionObj = [
@@ -66,7 +63,7 @@ var questionAsked = function () {
     document.getElementById("btn-b").innerText = questionObj[currentQuestion].choice[1];
     document.getElementById("btn-c").innerText = questionObj[currentQuestion].choice[2];
     document.getElementById("btn-d").innerText = questionObj[currentQuestion].choice[3];
-    document.getElementById("progress").innerText = `Question ${currentQuestion+1}of ${questionObj.length}`;
+    document.getElementById("progress").innerText = `Question ${currentQuestion+1} of  ${questionObj.length}`;
 
 
 };
@@ -93,9 +90,57 @@ var checkAnswer = function(event){
             clearInterval(timerObj);
             alert("End of quiz");
 
+
+            saveGame(score); 
+
+
         }
     }
 }
+
+var saveGame = function(currentScore){
+    //create space for user name 
+    var scoreBoxEl = document.createElement("div");
+    var inputNameEl = document.createElement("input");
+    inputNameEl.setAttribute("type","text");
+    inputNameEl.setAttribute("placeholder", "Enter your name");
+
+    //create submit button
+    var submitBtn = document.createElement("button");
+    submitBtn.setAttribute("type", "submit");
+    submitBtn.innerText = "SUBMIT";
+
+    scoreBoxEl.appendChild(inputNameEl);
+    scoreBoxEl.appendChild(submitBtn);
+
+
+    quizBox.appendChild(scoreBoxEl);
+    console.log("test");
+
+    //hide other content to only display score 
+    questionPromptEl.classList.add("hide");
+    quizHeader.classList.add("hide");
+    document.getElementById("question-choice").classList.add("hide");
+
+    //take score and add it to display 
+    document.getElementById("correct"). innerHTML = "You got a score of: " + currentScore; 
+
+    //take user name and score and save it to local storage
+    submitBtn.addEventListener("click", function(){
+        localStorage.setItem("name", inputNameEl.innerText);
+        localStorage.setItem("score", score);
+
+    });
+
+    console.log("score and name should be in local storage");
+
+
+}
+
+
+
+
+
 
 
 
@@ -103,7 +148,3 @@ startButtonEl.addEventListener("click", startGame);
 // questionAsked();
 
 document.getElementById("question-choice").addEventListener("click", checkAnswer);
-// document.getElementById("bnt-a").addEventListener("click",checkAnswer);
-// document.getElementById("bnt-a").addEventListener("click",checkAnswer)
-// document.getElementById("bnt-a").addEventListener("click",checkAnswer)
-// document.getElementById("bnt-a").addEventListener("click",checkAnswer)
