@@ -3,10 +3,13 @@ var questionPromptEl = document.getElementById('question');
 var questionSection = document.querySelector(".buttons");
 var quizBox = document.getElementById('quiz');
 var quizHeader = document.getElementById('quiz-q-t');
+var submitButton = document.querySelector(".submitBtn");
 var currentQuestion = 0;
 var timerObj;
 var timerCount = 60;
 var score = 0;
+
+
 
 var startGame = function () {
     startButtonEl.classList.add('hide');
@@ -98,6 +101,7 @@ var checkAnswer = function(event){
     }
 }
 
+
 var saveGame = function(currentScore){
     //create space for user name 
     var scoreBoxEl = document.createElement("div");
@@ -108,6 +112,8 @@ var saveGame = function(currentScore){
     //create submit button
     var submitBtn = document.createElement("button");
     submitBtn.setAttribute("type", "submit");
+    submitBtn.classList.add("submitBtn");
+    submitBtn.setAttribute("id", "submitData");
     submitBtn.innerText = "SUBMIT";
 
     scoreBoxEl.appendChild(inputNameEl);
@@ -125,23 +131,22 @@ var saveGame = function(currentScore){
     //take score and add it to display 
     document.getElementById("correct"). innerHTML = "You got a score of: " + currentScore; 
 
-    //take user name and score and save it to local storage
-    submitBtn.addEventListener("click", function(){
-        localStorage.setItem("name", inputNameEl.innerText);
-        localStorage.setItem("score", score);
-
-    });
-
-    console.log(inputNameEl.innerText);
-    console.log(score);
-
-
+    //take name entered and score and add it to local storage by pressing button
+    document.getElementById("submitData").addEventListener("click", userScore);
+ 
 }
 
+var userScore = function(currentScore){
+    let user = document.querySelector("input");
+    let userName = user.value;
 
+    localStorage.setItem("userName", userName);// this wont run becuase its not submited yet 
+    localStorage.setItem("userScore", currentScore);
 
+    console.log("userName" + userName);
+    console.log("score" + currentScore);
 
-
+}
 
 
 
@@ -149,3 +154,5 @@ startButtonEl.addEventListener("click", startGame);
 // questionAsked();
 
 document.getElementById("question-choice").addEventListener("click", checkAnswer);
+
+
