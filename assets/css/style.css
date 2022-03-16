@@ -112,9 +112,6 @@
     font-size: 2rem;
     margin-bottom: 4rem;
 }
-.quiz-repeat{
-
-}
 
 .quiz-repeat a{
     font-size: 1.5rem;
@@ -125,6 +122,11 @@
     padding:1rem;
     border-radius: 3px;
     transition: all .3s;
+}
+
+.submitBtn{
+    color:aqua;
+    border-radius: 15px;
 }
 
 

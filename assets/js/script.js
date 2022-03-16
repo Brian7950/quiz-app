@@ -132,7 +132,8 @@ var saveGame = function(currentScore){
 
     });
 
-    console.log("score and name should be in local storage");
+    console.log(inputNameEl.innerText);
+    console.log(score);
 
 
 }
