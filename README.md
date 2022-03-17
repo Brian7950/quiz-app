@@ -21,4 +21,9 @@
 ### Add additional highschore at end of quiz with multiple scores and names saved and displayed. 
 
 
+## deployed project 
+https://brian7950.github.io/quiz-app/
+
+
+
 ![quiz_app](https://user-images.githubusercontent.com/97642221/158722772-84a31135-31ce-4240-95cb-892395f21065.JPG)
