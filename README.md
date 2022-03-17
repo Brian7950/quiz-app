@@ -18,6 +18,9 @@
 ## Future implementation 
 ### Add additonal questions
 ### Randomize order in which questions are asked as well as order in which options are displayed. 
-### Add iditional highschore at end of quiz with multiple scores and names saved and displayed. 
+### Add additional highschore at end of quiz with multiple scores and names saved and displayed. 
+
+## deployed project 
+https://brian7950.github.io/quiz-app/
 
 
